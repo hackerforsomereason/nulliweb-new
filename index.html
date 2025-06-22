@@ -15,25 +15,52 @@
 </head>
 <body class="bg-slate-950 text-white">
 
-  <!-- Header -->
-  <header class="border-b border-white px-4 py-1">
-    <nav class="flex items-center justify-between p-6">
-      <section class="flex items-center gap-3">
-        <img class="w-10 h-10 rounded-md" src="Nullify.jpeg" alt="Logo" />
-        <h1 class="font-semibold text-2xl">NulliWeb</h1>
-      </section>
-      <section class="absolute left-1/2 -translate-x-1/2 flex gap-6 text-md">
-        <a href="News.html" class="relative group text-white">News<span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="About.html" class="relative group text-white">About<span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="OurTeam.html" class="relative group text-white">Our Team<span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span></a>
-      </section>
-      <section class="flex gap-3 text-2xl">
-        <a href="https://discord.gg/d798jBBb" target="_blank" class="hover:text-indigo-400 transition"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://www.youtube.com/channel/UCLBSjS8qXoV8T3cl5kcEDDQ" target="_blank" class="hover:text-red-600 transition"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:jadennlee.yt989@gmail.com" class="hover:text-green-400 transition"><i class="fa-solid fa-envelope"></i></a>
-      </section>
-    </nav>
-  </header>
+<!-- Header -->
+<header class="border-b border-white px-4 py-1">
+  <nav class="p-6 flex items-center justify-between relative">
+    
+    <!-- Logo centered on mobile -->
+    <section class="flex items-center gap-3 mx-auto md:mx-0 md:justify-start">
+      <img class="w-10 h-10 rounded-md" src="Nullify.jpeg" alt="Logo" />
+      <h1 class="font-semibold text-2xl">NulliWeb</h1>
+    </section>
+
+    <!-- Hamburger (hidden on desktop) -->
+    <div class="md:hidden absolute right-6 top-6">
+      <button id="menuBtn" class="text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Nav links (desktop) -->
+    <section class="hidden md:flex gap-6 text-md absolute left-1/2 -translate-x-1/2">
+      <a href="News.html" class="relative group text-white">News
+        <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="About.html" class="relative group text-white">About
+        <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="OurTeam.html" class="relative group text-white">Our Team
+        <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </section>
+
+    <!-- Social icons (only desktop) -->
+    <section class="hidden md:flex gap-3 text-2xl">
+      <a href="https://discord.gg/d798jBBb" target="_blank" class="hover:text-indigo-400 transition"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://www.youtube.com/channel/UCLBSjS8qXoV8T3cl5kcEDDQ" target="_blank" class="hover:text-red-600 transition"><i class="fa-brands fa-youtube"></i></a>
+      <a href="mailto:jadennlee.yt989@gmail.com" class="hover:text-green-400 transition"><i class="fa-solid fa-envelope"></i></a>
+    </section>
+  </nav>
+
+  <!-- Mobile dropdown menu (hidden by default) -->
+  <div id="mobileMenu" class="md:hidden hidden px-6 pb-4">
+    <a href="News.html" class="block py-2 text-white">News</a>
+    <a href="About.html" class="block py-2 text-white">About</a>
+    <a href="OurTeam.html" class="block py-2 text-white">Our Team</a>
+  </div>
+</header>
+
 
   <!-- Hero Section -->
   <section class="text-center py-24 px-4 bg-slate-900">
@@ -131,6 +158,12 @@
   document.getElementById("promoBtn").addEventListener("click", function (e) {
     e.preventDefault();
     document.getElementById("videos").scrollIntoView({ behavior: "smooth" });
+  });
+</script>
+<script>
+  document.getElementById("menuBtn").addEventListener("click", function () {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
   });
 </script>
 
